@@ -20,8 +20,8 @@ export const SearchCard = styled.div`
 
     img {
       object-fit: cover;
-      height: 50%;
-      width: 50%;
+      height: 100%;
+      width: 100%;
     }
   }
 
