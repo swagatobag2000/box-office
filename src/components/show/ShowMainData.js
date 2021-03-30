@@ -1,31 +1,35 @@
 import React from 'react';
 import IMG_PLACEHOLDER from '../../images/not-found.png';
 import { Star } from '../styled';
+import { MainDataWrapper, TagList, Headline } from './ShowMainData.styled';
 
 const ShowMainData = ({ name, rating, summary, tags, image }) => {
   return (
-    <div>
+    <MainDataWrapper>
       <img src={image ? image.original : IMG_PLACEHOLDER} alt="show-cover" />
-      <div>
-        <div>
+      <div className="text-side">
+        <Headline>
           <h1>{name}</h1>
           <div>
             <Star />
             <span>{rating.average || 'N/A'}</span>
           </div>
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: summary }} />
+        </Headline>
+        <div
+          className="summary"
+          dangerouslySetInnerHTML={{ __html: summary }}
+        />
         {/* if we want to display html mark up as it is, but normally not as converted text format, it is used */}
-        <div>
+        <TagList>
           Tags:{' '}
           <div>
             {tags.map((tag, i) => (
               <span key={i}>{tag}</span>
             ))}
           </div>
-        </div>
+        </TagList>
       </div>
-    </div>
+    </MainDataWrapper>
   );
 };
 
