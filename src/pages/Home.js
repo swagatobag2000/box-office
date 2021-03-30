@@ -1,42 +1,47 @@
 import React, { useState } from 'react';
-import ActorGrid from '../components/actor/ActorGrid';
-import { CustomRadio } from '../components/CustomRadio';
 import MainPageLayout from '../components/MainPageLayout';
+import { apiGet } from '../misc/config';
 import ShowGrid from '../components/show/ShowGrid';
-import { APIGet } from '../misc/config';
+import ActorGrid from '../components/actor/ActorGrid';
 import { useLastQuery } from '../misc/custom-hooks';
 import {
+  SearchInput,
   RadioInputsWrapper,
   SearchButtonWrapper,
-  SearchInput,
 } from './Home.styled';
+import CustomRadio from '../components/CustomRadio';
 
 const Home = () => {
   const [input, setInput] = useLastQuery();
   const [results, setResults] = useState(null);
   const [searchOption, setSearchOption] = useState('shows');
+
   const isShowsSearch = searchOption === 'shows';
-
-  const onInputChnage = event => {
-    setInput(event.target.value);
-  };
-
   const onSearch = () => {
-    APIGet(`/search/${searchOption}?q=${input}`).then(result => {
+    apiGet(`/search/${searchOption}?q=${input}`).then(result => {
       setResults(result);
     });
   };
 
-  const onKeyDown = event => {
-    if (event.keyCode === 13) {
+  const onInputChange = ev => {
+    setInput(ev.target.value);
+  };
+
+  const onKeyDown = ev => {
+    if (ev.keyCode === 13) {
       onSearch();
     }
+  };
+
+  const onRadioChange = ev => {
+    setSearchOption(ev.target.value);
   };
 
   const renderResults = () => {
     if (results && results.length === 0) {
       return <div>No results</div>;
     }
+
     if (results && results.length > 0) {
       return results[0].show ? (
         <ShowGrid data={results} />
@@ -44,21 +49,16 @@ const Home = () => {
         <ActorGrid data={results} />
       );
     }
+
     return null;
   };
-
-  const onRadioChange = event => {
-    setSearchOption(event.target.value);
-  };
-
-  console.log(searchOption);
 
   return (
     <MainPageLayout>
       <SearchInput
         type="text"
         placeholder="Search for something"
-        onChange={onInputChnage}
+        onChange={onInputChange}
         onKeyDown={onKeyDown}
         value={input}
       />
@@ -73,6 +73,7 @@ const Home = () => {
             onChange={onRadioChange}
           />
         </div>
+
         <div>
           <CustomRadio
             label="Actors"

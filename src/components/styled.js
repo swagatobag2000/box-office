@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import FadeIn from 'react-fade-in';
+
 export const FlexGrid = styled(FadeIn)`
   display: flex;
   justify-content: center;
@@ -13,7 +14,7 @@ export const SearchCard = styled.div`
 
   .img-wrapper {
     width: 100%;
-    border-radius: 20px;
+    border-radius: 40px;
     height: 420px;
     overflow: hidden;
     border: 1px solid #ddd;
@@ -34,11 +35,11 @@ export const SearchCard = styled.div`
     margin: 0;
   }
 `;
+
 export const Star = styled.div`
   display: inline-block;
   width: 18px;
   height: 18px;
-  /* background-color: #ffc806; */
   background-color: ${props => (props.active ? '#ffc806' : '#ddd')};
   clip-path: polygon(
     50% 0%,

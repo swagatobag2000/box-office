@@ -53,12 +53,14 @@ const RadioWrapper = styled.label`
   }
 `;
 
-export const CustomRadio = ({ label, ...restProps }) => {
+const CustomRadio = ({ label, ...restProps }) => {
   return (
-    <RadioWrapper htmlFor="actors-search">
+    <RadioWrapper htmlFor={restProps.id}>
       {label}
       <input {...restProps} type="radio" />
       <span />
     </RadioWrapper>
   );
 };
+
+export default CustomRadio;

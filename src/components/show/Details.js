@@ -13,4 +13,5 @@ const Details = ({ status, premiered, network }) => {
     </DetailsWrapper>
   );
 };
+
 export default Details;

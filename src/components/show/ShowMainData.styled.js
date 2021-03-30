@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const MainDataWrapper = styled.div`
   display: flex;
   margin-bottom: 40px;

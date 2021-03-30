@@ -1,4 +1,5 @@
 import React from 'react';
+
 import IMG_PLACEHOLDER from '../../images/not-found.png';
 import { CastList } from './Cast.styled';
 

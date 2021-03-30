@@ -1,7 +1,8 @@
 import React from 'react';
+
 import IMG_PLACEHOLDER from '../../images/not-found.png';
 import { Star } from '../styled';
-import { MainDataWrapper, TagList, Headline } from './ShowMainData.styled';
+import { MainDataWrapper, Headline, TagList } from './ShowMainData.styled';
 
 const ShowMainData = ({ name, rating, summary, tags, image }) => {
   return (
@@ -19,18 +20,17 @@ const ShowMainData = ({ name, rating, summary, tags, image }) => {
           className="summary"
           dangerouslySetInnerHTML={{ __html: summary }}
         />
-        {/* if we want to display html mark up as it is, but normally not as converted text format, it is used */}
-        <TagList>
+
+        <div>
           Tags:{' '}
-          <div>
+          <TagList>
             {tags.map((tag, i) => (
               <span key={i}>{tag}</span>
             ))}
-          </div>
-        </TagList>
+          </TagList>
+        </div>
       </div>
     </MainDataWrapper>
   );
 };
-
 export default ShowMainData;
