@@ -1,5 +1,15 @@
 # Box office
 
+### Screenshots
+ - Home Page<br>
+<kbd><img src="images/ss1.png" height="450em" /></kbd><br>
+ - Searched Shows Page<br>
+<kbd><img src="images/ss2.png" height="450em" /></kbd><br>
+ - Starred Page<br>
+<kbd><img src="images/ss3.png" height="450em" /></kbd><br>
+ - Searched Actor Page<br>
+<kbd><img src="images/ss4.png" height="450em" /></kbd><br>
+
 ## Overview
 
 A movie search app that consumes an external API to display data.
